@@ -9,21 +9,29 @@
     <!-- Div to hold the table -->
     <div id="showTrips">
       <p id="myTrips"></p>
-      <button onclick="showAddForm()">Add new trip</button>
+      <button onclick="showAddForm();">Add new trip</button>
     </div>
     <br>
     <!-- Form to add new trips -->
     <div id="addTrip" style="display:none;">
         <h1>Add a trip</h1>
         <form>
-            <label>Add a Trip:</label>
-            <!-- Input field to enter new trip -->
-            <input type="text" id="tripInput" placeholder="Enter trip details">
-            <!-- Button to add the new trip -->
-            <button type="button" onclick="addTrip()">Add</button>
+            <label>Itinerary Name:</label>
+            <input type="text" id="itiNameInput" placeholder="Enter itinerary name">
+            <label>Destination:</label>
+            <input type="text" id="destinationInput" placeholder="Enter destination">
+            <label>Purpose:</label>
+            <input type="text" id="purposeInput" placeholder="Enter purpose">
+            <label for="startDateInput">Start Date:</label>
+            <input type="date" id="startDateInput">
+            <label for="endDateInput">End Date:</label>
+            <input type="date" id="endDateInput">
+
+            <button type="button" onclick="addNewTrip()">Add</button>
             <button type="button" onclick="cancelAdd()">Cancel</button>
         </form>
     </div>
+    
 </body>
 </html>
 

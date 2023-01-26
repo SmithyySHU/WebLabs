@@ -52,15 +52,17 @@ function loadPage() {
 // Function to create the table
 function createTable(data) {
     // Initialize a variable to hold the table
-    var table = "<table border='1'>";
+    var table = "<table border='1'><tr><th>Itinerary Name</th><th>Destination</th><th>Purpose</th><th>Start Date</th><th>End Date</th></tr>";
     // Iterate through the data array and add each item as a row in the table
-    for (let oneTrip of data) {
+    for (let oi of data) {
         table += "<tr>";
-        table += "<td>" + oneTrip.itiName + "</td>";
-        table += "<td>" + oneTrip.destination + "</td>";
+        table += "<td>" + oi.itiName + "</td>";
+        table += "<td>" + oi.destination + "</td>";
+        table += "<td>" + oi.purpose + "</td>";
+        table += "<td>" + oi.startDate.toDateString() + "</td>";
+        table += "<td>" + oi.endDate.toDateString() + "</td>";
         table += "</tr>";
     };
-    
     // Close the table
     table += "</table>";
     // Return the table
@@ -77,7 +79,7 @@ function addNewTrip() {
     var endDate = document.getElementById("endDateInput").value;
     // Create a new object of trip
     var trip = {
-        id: itineraries.length,
+        id: itineraries.length + 1,
         itiName: itiName,
         destination: destination,
         purpose: purpose,
@@ -100,3 +102,16 @@ function addNewTrip() {
         document.getElementById("showTrips").style.display = "block";
         document.getElementById("addTrip").style.display = "none";
         }
+
+        // Function to show the add trip form
+    function showAddForm(){
+        document.getElementById("showTrips").style.display = "none";
+        document.getElementById("addTrip").style.display = "block";
+}
+
+function cancelAdd() {
+    // hide the add trip form
+    document.getElementById("addTrip").style.display = "none";
+    // show the showTrips div
+    document.getElementById("showTrips").style.display = "block";
+}
