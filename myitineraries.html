@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Itineraries</title>
+    
+</head>
+<body onload="loadPage()">
+    <h1>I can't wait to go on these trips</h1>
+    <!-- Div to hold the table -->
+    <div id="myTrips"></div>
+    <br>
+    <!-- Form to add new trips -->
+    <form>
+        <label>Add a Trip:</label>
+        <!-- Input field to enter new trip -->
+        <input type="text" id="tripInput" placeholder="Enter trip details">
+        <!-- Button to add the new trip -->
+        <button type="button" onclick="addTrip()">Add</button>
+    </form>
+</body>
+</html>
+
+<script>
+// Array to hold the itineraries
+var itineraries = [
+    'July Business Development trip 2023',
+    'August Client-site visit 2023',
+    'September Recruitment visit 2023',
+    'October holiday to Belize 2023'
+];
+
+// Function to load the page and display the table
+function loadPage() {
+    // Call the createTable function and pass the itineraries array
+    var table = createTable(itineraries);
+    // Assign the returned table to the "myTrips" div
+    document.getElementById("myTrips").innerHTML = table;
+}
+
+// Function to create the table
+function createTable(data) {
+    // Initialize a variable to hold the table
+    var table = "<table border='1'>";
+    // Iterate through the data array and add each item as a row in the table
+    for (var i of data) {
+        table += "<tr><td>" + i + "</td></tr>";
+    }
+    // Close the table
+    table += "</table>";
+    // Return the table
+    return table;
+}
+
+// Function to add new trip to the table
+function addTrip() {
+    // Get the value entered in the text input
+    var trip = document.getElementById("tripInput").value;
+    // Push the new trip to the itineraries array
+    itineraries.push(trip);
+    // Call the createTable function and pass the updated itineraries array
+    var table = createTable(itineraries);
+    // Assign the returned table to the "myTrips" div
+    document.getElementById("myTrips").innerHTML = table;
+}
+</script>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Taxi Company</title>
+    <style>
+        /* General styles */
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+  
+        /* Header styles */
+        header {
+          background-color: #0277BD;
+          color: white;
+          padding: 15px;
+        }
+  
+        header nav {
+          display: flex;
+          justify-content: space-between;
+        }
+  
+        header nav ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+        }
+  
+        header nav ul li {
+          margin-left: 20px;
+        }
+  
+        header nav ul li a {
+          color: white;
+          text-decoration: none;
+        }
+  
+        /* Section styles */
+        section {
+          padding: 50px;
+        }
+  
+        /* Booking form styles */
+        #booking-form {
+          display: flex;
+          flex-wrap: wrap;
+        }
+  
+        #booking-form label {
+          width: 150px;
+          margin-right: 10px;
+          font-weight: bold;
+        }
+  
+        #booking-form input {
+          width: 200px;
+          height: 35px;
+          padding: 0 10px;
+          margin-bottom: 20px;
+          border: 1px solid gray;
+          border-radius: 5px;
+        }
+  
+        #booking-form button {
+          background-color: #0277BD;
+          color: white;
+          width: 100px;
+          height: 35px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+  
+        /* Login form styles */
+        #login-form {
+          display: flex;
+          flex-wrap: wrap;
+        }
+  
+        #login-form label {
+          width: 150px;
+          margin-right: 10px;
+          font-weight: bold;
+        }
+  
+        #login-form input {
+          width: 200px;
+          height: 35px;
+          padding: 0 10px;
+          margin-bottom: 20px;
+          border: 1px solid gray;
+          border-radius: 5px;
+        }
+  
+        #login-form button {
+          background-color: #0277BD;
+          color: white;
+          width: 100px;
+          height: 35px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      </style>
+    
+  
+  
+  
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#booking">Book a ride</a></li>
+          <li><a href="#login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home">
+      <h1>Welcome to Taxi Company</h1>
+      <p>We provide safe and reliable transportation services.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Learn more about our company and services.</p>
+    </section>
+
+    <section id="booking" style="display: none;">
+      <h2>Book a ride</h2>
+      <form id="booking-form" action="submit-booking.php" method="post">
+        <label for="pickup">Pickup location:</label>
+        <input type="text" id="pickup" name="pickup">
+        <label for="dropoff">Dropoff location:</label>
+        <input type="text" id="dropoff" name="dropoff">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date">
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time">
+        <button type="submit">Book Now</button>
+      </form>
+    </section>
+
+    <section id="login">
+      <h2>Login</h2>
+      <form id="login-form" action="submit-login.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>Copyright © 2021 Taxi Company</p>
+    </footer>
+
+    <script>
+      var isLoggedIn = false;
+
+      document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        // check if the user is logged in
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username === "admin" && password === "password") {
+          // change the login status
+          isLoggedIn = true;
+          // show the booking section
+          document.getElementById("booking").style.display = "block";
+          // hide the login section
+          document
